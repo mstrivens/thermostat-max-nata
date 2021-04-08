@@ -19,3 +19,12 @@
 - [x] You don't need to hook up your thermostat model to the user interface.  That comes in the next challenge!
 - [x] Add a `script` tag to load your thermostat JavaScript file into the page.
 - [x] Open the developer console and check you can instantiate a thermostat object and call methods on it.
+
+## Thermostat - jQuery
+
+- [x] Add jQuery to the page
+- [ ] Play with jQuery
+- [ ] Play with jQuery a bit more
+- [ ] Go to [You Might Not Need jQuery](http://youmightnotneedjquery.com/) and see the vanilla JavaScript you would have to write. It's good to at least know that you can do it without jQuery, and to understand that it's all just JavaScript under the hood.
+- [ ] Create another file that will hold your JavaScript code that manages the interface between the UI and the thermostat object.  Load the file into your HTML page.
+- [ ] Hook up your buttons/links so they run the methods on the underlying thermostat model

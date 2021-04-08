@@ -49,3 +49,16 @@ class Thermostat {
     return this.temperature = 20
   };
 };
+
+$( document ).ready(function() {
+
+    // Your code here.
+    alert( "This is an Alert!!! It's too hawt!" );
+
+    $( "#up" ).click(function( event ) {
+      alert( "Sorry it's already too hot!" );
+
+      event.preventDefault();
+    });
+
+});
