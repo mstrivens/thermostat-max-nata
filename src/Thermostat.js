@@ -58,8 +58,15 @@ $( document ).ready(function() {
     alert( "This is an Alert!!! It's too hawt!" );
 
     $( "#up" ).click(function( event ) {
-      alert( "Sorry it's already too hot!" );
-      event.preventDefault();
+      thermostat.upTemp()
+    });
+
+    $( "#down" ).click(function( event ) {
+      thermostat.downTemp()
+    });
+
+    $( "#reset" ).click(function( event ) {
+      thermostat.resetTemp()
     });
 
     $( "#ps" ).click(function( event ) {
@@ -75,10 +82,12 @@ $( document ).ready(function() {
 
     $( "#usage-button" ).click(function( event ) {
       if (thermostat.currentUsage() === 'low-usage') {
-        $( "#display" ).addClass( "test" );
-
-      };
-
+        $( ".display" ).removeClass(['green', 'black', 'red']).addClass( "green" );
+      } else if (thermostat.currentUsage() === 'medium-usage') {
+        $( ".display" ).removeClass(['green', 'black', 'red']).addClass( "black" );
+      } else if (thermostat.currentUsage() === 'high-usage') {
+        $( ".display" ).removeClass(['green', 'black', 'red']).addClass( "red" );
+      }
     });
 
 

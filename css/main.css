@@ -6,20 +6,28 @@
   width: 40%;
 }
 
-#display {
+.display {
   display: flex;
   flex-direction: row;
   justify-content: center;
   border: 2px solid red;
   border-radius: 5px;
-  /* background-color: black; */
+  background-color: black;
   color: white;
   font-family: monospace;
 
 }
 
-#display .test {
+.green {
   background-color: green;
+}
+
+.black {
+  background-color: black;
+}
+
+.red {
+  background-color: red;
 }
 
 #Current-temp {
