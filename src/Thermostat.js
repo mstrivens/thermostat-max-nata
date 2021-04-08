@@ -1,9 +1,9 @@
 class Thermostat {
   constructor() {
     this.temperature = 20;
-    this.maximum_temperature = 32
+    this.maximum_temperature = 25
     this.minimum_temperature = 10
-    this.powerSave = false
+    this.powerSave = true
   };
 
   current_setting() {
