@@ -6,15 +6,15 @@ describe("Thermostat", function() {
     testThermostat = new Thermostat();
   });
 
-  describe("#current_setting", function() {
+  describe("#currentSetting", function() {
     it("starts at 20 degrees", function(){
-      expect(testThermostat.current_setting()).toEqual(20);
+      expect(testThermostat.currentSetting()).toEqual(20);
     });
   });
 
   describe("#upTemp", function() {
     it("You can increase the temperature with an up function", function() {
-      expect(testThermostat.upTemp(1)).toEqual(21);
+      expect(testThermostat.upTemp()).toEqual(21);
     });
 
     it("cannot increase the temperature above 32 degrees", function() {
@@ -35,11 +35,35 @@ describe("Thermostat", function() {
 
   describe("#downTemp", function() {
     it("You can decrease the temperature with a down function", function() {
-      expect(testThermostat.downTemp(1)).toEqual(19);
+      expect(testThermostat.downTemp()).toEqual(19);
     });
+
     it("has a minimum temperature of 10 degrees", function() {
       expect(testThermostat.downTemp(11)).toEqual(`Temperature cannot go below ${minTemp} degrees, it has been adjusted to 10 degrees!`)
-      expect(testThermostat.current_setting()).toEqual(10);
+      expect(testThermostat.currentSetting()).toEqual(10);
+    });
+  });
+
+  describe("#resetTemp", function() {
+    it("adjusts the temp to 20 degrees", function() {
+      expect(testThermostat.resetTemp()).toEqual(20);
+    });
+  });
+
+  describe("#currentUsage", function() {
+    it("tells you if you are at low usage, when below 18 degrees", function() {
+      testThermostat.downTemp(5)
+      expect(testThermostat.currentUsage()).toEqual("low-usage");
+    });
+
+    it("tells you if you are at medium usage, when at or below 25 degrees, and 18 or above", function() {
+      expect(testThermostat.currentUsage()).toEqual("medium-usage");
+    });
+
+    it("tells you if you are at high usage, when above 25", function() {
+      testThermostat.adjustPowerSave()
+      testThermostat.upTemp(6)
+      expect(testThermostat.currentUsage()).toEqual("high-usage");
     });
   });
 
