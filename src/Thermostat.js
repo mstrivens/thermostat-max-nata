@@ -50,15 +50,37 @@ class Thermostat {
   };
 };
 
+let thermostat = new Thermostat()
+thermostat.temperature = 15
+
 $( document ).ready(function() {
 
-    // Your code here.
     alert( "This is an Alert!!! It's too hawt!" );
 
     $( "#up" ).click(function( event ) {
       alert( "Sorry it's already too hot!" );
-
       event.preventDefault();
     });
+
+    $( "#ps" ).click(function( event ) {
+      if (thermostat.powerSave === true) {
+        thermostat.adjustPowerSave()
+        $( "#powersave-logo" ).fadeOut( "slow" );
+      }
+      else if (thermostat.powerSave === false) {
+        thermostat.adjustPowerSave()
+        $( "#powersave-logo" ).fadeIn( "slow" );
+      }
+    });
+
+    $( "#usage-button" ).click(function( event ) {
+      if (thermostat.currentUsage() === 'low-usage') {
+        $( "#display" ).addClass( "test" );
+
+      };
+
+    });
+
+
 
 });

@@ -12,10 +12,14 @@
   justify-content: center;
   border: 2px solid red;
   border-radius: 5px;
-  background-color: black;
+  /* background-color: black; */
   color: white;
   font-family: monospace;
 
+}
+
+#display .test {
+  background-color: green;
 }
 
 #Current-temp {
