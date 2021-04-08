@@ -2,6 +2,7 @@ class Thermostat {
   constructor() {
     this.DEFAULT_TEMPERATURE = 20
     this.temperature = this.DEFAULT_TEMPERATURE;
+    this.currentTemp = 10
     this.maximum_temperature = 25
     this.minimum_temperature = 10
     this.powerSave = true
@@ -57,16 +58,26 @@ $( document ).ready(function() {
 
     alert( "This is an Alert!!! It's too hawt!" );
 
+    updateTemperature();
+    $('#the-current-temp').text(thermostat.currentTemp);
+    adjustTempToTarget();
+
     $( "#up" ).click(function( event ) {
-      thermostat.upTemp()
+      thermostat.upTemp();
+      updateTemperature();
+      adjustTempToTarget();
     });
 
     $( "#down" ).click(function( event ) {
-      thermostat.downTemp()
+      thermostat.downTemp();
+      updateTemperature();
+      adjustTempToTarget();
     });
 
     $( "#reset" ).click(function( event ) {
-      thermostat.resetTemp()
+      thermostat.resetTemp();
+      updateTemperature();
+      adjustTempToTarget();
     });
 
     $( "#ps" ).click(function( event ) {
@@ -83,13 +94,34 @@ $( document ).ready(function() {
     $( "#usage-button" ).click(function( event ) {
       if (thermostat.currentUsage() === 'low-usage') {
         $( ".display" ).removeClass(['green', 'black', 'red']).addClass( "green" );
+        $('#the-usage').text("Low");
       } else if (thermostat.currentUsage() === 'medium-usage') {
         $( ".display" ).removeClass(['green', 'black', 'red']).addClass( "black" );
+        $('#the-usage').text("Medium");
       } else if (thermostat.currentUsage() === 'high-usage') {
         $( ".display" ).removeClass(['green', 'black', 'red']).addClass( "red" );
+        $('#the-usage').text("High");
       }
     });
 
+    function updateTemperature() {
+      $('#the-target-temp').text(thermostat.temperature);
+    };
 
+    function adjustTempToTarget() {
 
+      if (thermostat.currentTemp < thermostat.temperature) {
+        for(let i = thermostat.currentTemp ; i <= thermostat.temperature; i++) {
+          delay();
+          $('#the-current-temp').text(i);
+          // setTimeout(function(){}, 1000);
+        }
+      }
+    };
+
+    function delay() {
+      setTimeout(() => {
+        console.log("1")
+      }, 1000);
+    };
 });
