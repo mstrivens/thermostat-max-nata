@@ -112,16 +112,16 @@ $( document ).ready(function() {
 
       if (thermostat.currentTemp < thermostat.temperature) {
         for(let i = thermostat.currentTemp ; i <= thermostat.temperature; i++) {
-          delay();
-          $('#the-current-temp').text(i);
+          delay(i);
+          // $('#the-current-temp').text(i);
           // setTimeout(function(){}, 1000);
         }
       }
     };
 
-    function delay() {
+    function delay(i) {
       setTimeout(() => {
-        console.log("1")
-      }, 1000);
+      $('#the-current-temp').text(i)
+    }, 5000);
     };
 });
