@@ -2,9 +2,7 @@ let thermostat = new Thermostat()
 
 $( document ).ready(function() {
 
-    $('#weather').text($.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=289b88a2e3e5fb781d9de6163f5e3c39&units=metric', function(data){console.log(data.main.temp);}))
-
-    alert( "This is an Alert!!! It's too hawt!" );
+     alert( "This is an Alert!!! It's too hawt!" );
 
     updateTemperature();
     $('#the-current-temp').text(thermostat.currentTemp);
@@ -72,4 +70,10 @@ $( document ).ready(function() {
       $('#the-current-temp').text(i)
     }, 5000);
     };
+    
+    $('#location').change(function() {
+      let city = $('#location').val();
+      $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=289b88a2e3e5fb781d9de6163f5e3c39&units=metric', function(data){
+        $('#outside_weather').text(data.main.temp + 'c');})
+      })
 });
