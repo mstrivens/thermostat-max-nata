@@ -1,0 +1,91 @@
+#Thermotron-Panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid black;
+  width: 40%;
+}
+
+.display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 2px solid red;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  font-family: monospace;
+
+}
+
+.green {
+  background-color: green;
+}
+
+.black {
+  background-color: black;
+}
+
+.red {
+  background-color: red;
+}
+
+#Current-temp {
+  margin: 5px;
+}
+
+#Target-temp{
+  margin: 5px;
+}
+
+#Weather{
+  margin: 5px;
+}
+
+#Usages-display {
+  margin: 5px;
+}
+
+#powersave-logo {
+  margin: 40px 20px 10px 10px;
+}
+
+.buttons {
+
+}
+
+
+#Buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5px;
+}
+
+.UpDown-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+#up {
+  margin: 2px;
+}
+
+#down {
+  margin: 2px;
+}
+
+.powerSave_reset-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}
+
+#ps {
+  margin: 2px;
+}
+
+#reset {
+  margin: 2px;
+}
